@@ -31,6 +31,33 @@
                 alert("Both passwords must be filled out");
                 return false;
             }
+			# método para añadir dificultad a las contraseñas
+			{
+			char clave;
+			byte  contNumero = 0, contLetraMay = 0, contLetraMin=0;
+			for (byte i = 0; i < password.length(); i++) {
+            clave = password.charAt(i);
+            String passValue = String.valueOf(clave);
+            if (passValue.matches("[A-Z]")) {
+                    contLetraMay++;
+                } else if (passValue.matches("[a-z]")) {
+                    contLetraMin++;
+                } else if (passValue.matches("[0-9]")) {
+                    contNumero++;
+                }
+				if (contNumero == 0){
+				alert ("La contraseña no cumple con los requisitos, debe contener Mayusculas, minúsculas y Numeros")
+				return false;
+				}else if (contLetraMin == 0){
+				alert ("La contraseña no cumple con los requisitos, debe contener Mayusculas, minúsculas y Numeros")
+				return false;
+				}else if (contLetraMay == 0){
+				alert ("La contraseña no cumple con los requisitos, debe contener Mayusculas, minúsculas y Numeros")
+				return false;
+				}
+					
+				}
+            }
 
             if (password != password2) {
                 alert("Both passwords should be the same");
